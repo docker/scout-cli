@@ -8,7 +8,7 @@ _Note:_ Docker Scout is a new product and is free while in early access. Read mo
 
 [Docker Scout](https://www.docker.com/products/docker-scout/) is a collection of software supply chain features that appear throughout Docker user interfaces and the command line interface (CLI). These features provide detailed insights into the composition and security of container images.
 
-This repository contains the source code of the `docker scout` CLI plugin.
+This repository contains installable binaries of the `docker scout` CLI plugin.
 
 ## Usage
 
