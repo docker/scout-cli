@@ -8,7 +8,7 @@ set -u
 
 PROJECT_NAME="docker-scout"
 OWNER=docker
-REPO="scout"
+REPO="scout-cli"
 GITHUB_DOWNLOAD_PREFIX=https://github.com/${OWNER}/${REPO}/releases/download
 INSTALL_SH_BASE_URL=https://raw.githubusercontent.com/${OWNER}/${REPO}
 BINARY="docker-scout"
