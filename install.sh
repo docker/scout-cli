@@ -6,11 +6,11 @@
 
 set -u
 
-PROJECT_NAME="scout"
+PROJECT_NAME="docker-scout"
 OWNER=docker
-REPO="${PROJECT_NAME}"
+REPO="scout"
 GITHUB_DOWNLOAD_PREFIX=https://github.com/${OWNER}/${REPO}/releases/download
-INSTALL_SH_BASE_URL=https://raw.githubusercontent.com/${OWNER}/${PROJECT_NAME}
+INSTALL_SH_BASE_URL=https://raw.githubusercontent.com/${OWNER}/${REPO}
 BINARY="docker-scout"
 DOCKER_HOME=${DOCKER_HOME:-~/.docker}
 DEFAULT_INSTALL_DIR=${DOCKER_HOME}/cli-plugins
