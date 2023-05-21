@@ -25,7 +25,7 @@ See the [reference documentation](https://docs.docker.com/scout) to learn about 
 To install, run the following command in your terminal:
 
 ```shell
-$ curl -sSfL https://raw.githubusercontent.com/docker/scout/main/install.sh | sh -s --
+curl -sSfL https://raw.githubusercontent.com/docker/scout/main/install.sh | sh -s --
 ```
 
 ### Manual Installation
