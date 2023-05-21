@@ -27,14 +27,14 @@ See the [reference documentation](https://docs.docker.com/scout) to learn about 
 To install, run the following command in your terminal:
 
 ```shell
-curl -sSfL https://raw.githubusercontent.com/docker/scout/main/install.sh | sh -s --
+curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
 ```
 
 ### Manual Installation
 
 To install it manually:
 
-- Download the `docker-scout` binary corresponding to your platform from the [latest](https://github.com/docker/scout/releases/latest) or [other](https://github.com/docker/scout/releases) releases.
+- Download the `docker-scout` binary corresponding to your platform from the [latest](https://github.com/docker/scout-cli/releases/latest) or [other](https://github.com/docker/scout-cli/releases) releases.
 - Uncompress it as
     - `docker-scout` on _Linux_ and _macOS_
     - `docker-scout.exe` on _Windows_
