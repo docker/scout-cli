@@ -3,6 +3,8 @@ _Note:_ Docker Scout is a new product and is free while in early access. Read mo
 - [Docker Scout](#docker-scout)
 - [Usage](#usage)
 - [CLI Plugin Installation](#cli-plugin-installation)
+- [Run as container](#run-as-container)
+- [GitHub Action](#github-action)
  
 # Docker Scout
 
@@ -43,3 +45,11 @@ To install it manually:
     - `chmod +x $HOME/.docker/cli-plugins/docker-scout`
 - Authorize the binary to be executable on _macOS_
     - `xattr -d com.apple.quarantine $HOME/.docker/cli-plugins/docker-scout`
+
+## Run as container
+
+A container image to run the Docker Scout CLI in containerized environments is available at [docker/scout-cli](https://hub.docker.com/r/docker/scout-cli). 
+
+## GitHub Action
+
+An early prototype of running the Docker Scout CLI as part of a GitHub Action workflow is available at [docker/scout-action](https://github/docker/scout-action).
