@@ -20,6 +20,14 @@ See the [reference documentation](https://docs.docker.com/scout) to learn about 
 
 `docker scout` CLI plugin is available by default on [Docker Desktop](https://docs.docker.com/desktop/) starting with version `4.17`.
 
+### Script Installation
+
+To install, run the following command in your terminal:
+
+```shell
+$ curl -sSfL https://raw.githubusercontent.com/docker/scout/main/install.sh | sh -s --
+```
+
 ### Manual Installation
 
 To install it manually:
@@ -35,4 +43,3 @@ To install it manually:
     - `chmod +x $HOME/.docker/cli-plugins/docker-scout`
 - Authorize the binary to be executable on _macOS_
     - `xattr -d com.apple.quarantine $HOME/.docker/cli-plugins/docker-scout`
-
