@@ -17,5 +17,6 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
+          draft: true
           files: |
             dist/docker-scout_*
