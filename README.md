@@ -5,6 +5,7 @@ _Note:_ Docker Scout is a new product and is free while in early access. Read mo
 - [CLI Plugin Installation](#cli-plugin-installation)
 - [Run as container](#run-as-container)
 - [GitHub Action](#github-action)
+- [License](#license)
  
 # Docker Scout
 
@@ -53,3 +54,7 @@ A container image to run the Docker Scout CLI in containerized environments is a
 ## GitHub Action
 
 An early prototype of running the Docker Scout CLI as part of a GitHub Action workflow is available at [docker/scout-action](https://github/docker/scout-action).
+
+## License
+
+The Docker Scout CLI is licensed under the Terms and Conditions of the [Docker Subscription Service Agreement](https://www.docker.com/legal/docker-subscription-service-agreement/).
