@@ -53,7 +53,7 @@ A container image to run the Docker Scout CLI in containerized environments is a
 
 ## GitHub Action
 
-An early prototype of running the Docker Scout CLI as part of a GitHub Action workflow is available at [docker/scout-action](https://github/docker/scout-action).
+An early prototype of running the Docker Scout CLI as part of a GitHub Action workflow is available at [docker/scout-action](https://github.com/docker/scout-action).
 
 ## License
 
