@@ -9,8 +9,7 @@ _Note:_ Docker Scout is a new product and is free while in early access. Read mo
  
 # Docker Scout
 
-[Docker Scout](https://www.docker.com/products/docker-scout/) is a collection of software supply chain features that appear throughout Docker user interfaces and the command line interface (CLI). These features provide detailed insights into the composition and security of container images.
-
+[Docker Scout](https://www.docker.com/products/docker-scout/)  is a set of software supply chain features integrated into Docker's user interfaces and command line interface (CLI). These features offer comprehensive visibility into the structure and security of container images.
 This repository contains installable binaries of the `docker scout` CLI plugin.
 
 ## Usage
