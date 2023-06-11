@@ -134,7 +134,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
       
-      - name: Docker Scount
+      - name: Docker Scout
         id: docker-scout
         if: ${{ github.event_name == 'pull_request' }}
         uses: docker/scout-action@dd36f5b0295baffa006aa6623371f226cc03e506
