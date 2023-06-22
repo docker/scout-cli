@@ -14,6 +14,8 @@ This repository contains installable binaries of the `docker scout` CLI plugin.
 
 ## Usage
 
+The [CLI documentation is available in this repository](./docs/scout.md).
+
 See the [reference documentation](https://docs.docker.com/scout) to learn about Docker Scout including Docker Desktop and Docker Hub integrations.
 
 ## CLI Plugin Installation
