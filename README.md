@@ -180,7 +180,7 @@ docker-build:
         # Get a CVE report for the built image and fail the pipeline when critical or high CVEs are detected
         docker scout cves "$CI_REGISTRY_IMAGE${tag}" --exit-code --only-severity critical,high    
       else
-        # Compare CVEs of branch image to latest from default branch
+        # Compare image from branch with latest image from the default branch and fail if new critical or high CVEs are detected
         docker scout compare "$CI_REGISTRY_IMAGE${tag}" --to "$CI_REGISTRY_IMAGE:latest" --exit-code --only-severity critical,high --ignore-unchanged
       fi
     
