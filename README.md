@@ -95,9 +95,6 @@ jobs:
           
       - name: Setup Docker buildx
         uses: docker/setup-buildx-action@v2.5.0
-        with:
-          driver-opts: |
-            image=moby/buildkit:v0.10.6
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
@@ -158,6 +155,7 @@ docker-build:
     - docker:dind
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    
     # Install curl and the Docker Scout CLI
     - |
       apk add --update curl
@@ -176,8 +174,16 @@ docker-build:
         echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
       fi
     - docker build --pull -t "$CI_REGISTRY_IMAGE${tag}" .
-    # Get a CVE report for the built image and fail the pipeline when critical or high CVEs are detected
-    - docker scout cves "$CI_REGISTRY_IMAGE${tag}" --exit-code --only-severity critical,high
+    
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        # Get a CVE report for the built image and fail the pipeline when critical or high CVEs are detected
+        docker scout cves "$CI_REGISTRY_IMAGE${tag}" --exit-code --only-severity critical,high    
+      else
+        # Compare CVEs of branch image to latest from default branch
+        docker scout compare "$CI_REGISTRY_IMAGE${tag}" --to "$CI_REGISTRY_IMAGE:latest" --exit-code --only-severity critical,high --ignore-unchanged
+      fi
+    
     - docker push "$CI_REGISTRY_IMAGE${tag}"
   rules:
     - if: $CI_COMMIT_BRANCH
