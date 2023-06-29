@@ -1,0 +1,24 @@
+command: docker scout repo disable
+short: Disable Docker Scout
+long: |
+    The docker scout repo disable command disables Docker Scout on repositories.
+usage: docker scout repo disable REPOSITORY
+pname: docker scout repo
+plink: docker_scout_repo.yaml
+inherited_options:
+    - option: debug
+      value_type: bool
+      default_value: "false"
+      description: Debug messages
+      deprecated: false
+      hidden: true
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
+deprecated: false
+experimental: false
+experimentalcli: false
+kubernetes: false
+swarm: false
+
