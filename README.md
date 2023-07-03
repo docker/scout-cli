@@ -222,7 +222,7 @@ jobs:
           command: |
             env
             curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s -- -b /home/circleci/bin
-            echo $DOCKER_PAT | docker login -u $DOCKER_USER --password-stdin
+            echo $DOCKER_HUB_PAT | docker login -u $DOCKER_HUB_USER --password-stdin
 
       # Build the Docker image
       - run:
@@ -283,7 +283,28 @@ stages:
           docker login -u $(DOCKER_HUB_USER) -p $(DOCKER_HUB_PAT)
           # Get a CVE report for the built image and fail the pipeline when critical or high CVEs are detected
           docker scout cves $(image):$(tag) --exit-code --only-severity critical,high
-```          
+```
+
+### Jenkins
+
+The following snippet can be added to a `Jenkinsfile` to install and analyze images:
+
+```groovy
+        stage('Analyze image') {
+            steps {
+                // Install Docker Scout
+                sh 'curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s -- -b /usr/local/bin'
+                
+                // Log into Docker Hub
+                sh 'echo $DOCKER_HUB_PAT | docker login -u $DOCKER_HUB_USER --password-stdin'
+
+                // Analyze and fail on critical or high vulnerabilities
+                sh 'docker-scout cves $IMAGE_TAG --exit-code --only-serverity critical,high'
+            }
+        }
+```
+
+This example assume two secrets to be available to authenticate against Docker Hub, called `DOCKER_HUB_USER` and `DOCKER_HUB_PAT`. 
 
 ## License
 
