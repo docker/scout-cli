@@ -195,17 +195,13 @@ docker-build:
 
 Use the following pipeline definition as a template to get Docker Scout integrated in CircleCI project:
 
-```
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/configuration-reference
+```yaml
 version: 2.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
   
   build:
-    # Use `docker:stable` as the Docker container to run this job in
+
     docker:
       - image: cimg/base:stable
     
@@ -228,7 +224,7 @@ jobs:
             curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s -- -b /home/circleci/bin
             echo $DOCKER_PAT | docker login -u $DOCKER_USER --password-stdin
 
-      # Build the hello world image
+      # Build the Docker image
       - run:
           name: Build Docker image
           command: docker build -t $IMAGE_TAG .
