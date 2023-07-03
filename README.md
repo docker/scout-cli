@@ -191,6 +191,60 @@ docker-build:
         - Dockerfile
 ```
 
+### CircleCI 
+
+Use the following pipeline definition as a template to get Docker Scout integrated in CircleCI project:
+
+```
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/configuration-reference
+version: 2.1
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/configuration-reference/#jobs
+jobs:
+  
+  build:
+    # Use `docker:stable` as the Docker container to run this job in
+    docker:
+      - image: cimg/base:stable
+    
+    environment:
+      IMAGE_TAG: docker/scout-demo-service:latest
+    
+    steps:
+      # Checkout the repository files
+      - checkout
+
+      # Set up a separate Docker environment to run `docker` commands in
+      - setup_remote_docker:
+          version: 20.10.24
+
+      # Install Docker Scout and login to Docker Hub
+      - run:
+          name: Install Docker Scout
+          command: |
+            env
+            curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s -- -b /home/circleci/bin
+            echo $DOCKER_PAT | docker login -u $DOCKER_USER --password-stdin
+
+      # Build the hello world image
+      - run:
+          name: Build Docker image
+          command: docker build -t $IMAGE_TAG .
+      
+      # Run Docker Scout          
+      - run:
+          name: Scan image for CVEs
+          command: |
+            docker-scout cves $IMAGE_TAG --exit-code --only-severity critical,high
+
+workflows:
+  build-docker-image:
+    jobs:
+      - build
+```
+
 ### Microsoft Azure DevOps Pipelines
 
 Use the following pipeline definition as a template to get Docker Scout integrated in Azure DevOps Pipelines:
