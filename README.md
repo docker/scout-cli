@@ -143,9 +143,9 @@ jobs:
           exit-code: true
 ```
 
-### Gitlab
+### GitLab
 
-Use the following pipeline definition as a template to get Docker Scout integrated in Gitlab CI:
+Use the following pipeline definition as a template to get Docker Scout integrated in GitLab CI:
 
 ```yaml
 docker-build:
