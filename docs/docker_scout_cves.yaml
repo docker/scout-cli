@@ -3,7 +3,7 @@ short: Display CVEs identified in a software artifact
 long: |-
     The `docker scout cves` command analyzes a software artifact for vulnerabilities.
 
-    If no image is specified, the most recently build image will be used.
+    If no image is specified, the most recently built image will be used.
 
     The following artifact types are supported:
 
@@ -52,6 +52,7 @@ options:
         Output format of the generated vulnerability report:
         - packages: default output, plain text with vulnerabilities grouped by packages
         - sarif: json Sarif output
+        - markdown: markdown output
       deprecated: false
       hidden: false
       experimental: false

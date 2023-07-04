@@ -25,7 +25,7 @@ The `docker scout quickview` command displays a quick overview of an image.
 It displays a summary of the vulnerabilities in the image and the vulnerabilities from the base image.
 If available it also displays base image refresh and update recommendations.
 
-If no image is specified, the most recently build image will be used.
+If no image is specified, the most recently built image will be used.
 
 ## Examples
 
