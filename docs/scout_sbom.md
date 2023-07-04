@@ -23,7 +23,7 @@ The `docker scout sbom` command analyzes a software artifact to generate the cor
 
 The SBOM can be used to list all packages, or the ones from a specific type (as dep, maven, etc).
 
-If no image is specified, the most recently build image will be used.
+If no image is specified, the most recently built image will be used.
 
 The following artifact types are supported:
 

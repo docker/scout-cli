@@ -24,7 +24,7 @@ The `docker scout recommendations` command display recommendations for base imag
 It analyzes the image and display recommendations to refresh or update the base image.
 For each recommendation it shows a list of benefits like less vulnerabilities, smaller image, etc.
 
-If no image is specified, the most recently build image will be used.
+If no image is specified, the most recently built image will be used.
 
 The following artifact types are supported:
 

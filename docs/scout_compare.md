@@ -41,7 +41,7 @@ The `docker scout compare` command analyzes two images and displays a comparison
 The main usage is to compare two versions of the same image.
 For instance when a new image is built and compared to the version running in production.
 
-If no image is specified, the most recently build image will be used.
+If no image is specified, the most recently built image will be used.
 
 The following artifact types are supported:
 
