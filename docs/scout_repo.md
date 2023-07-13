@@ -1,7 +1,7 @@
 # docker scout repo
 
 <!---MARKER_GEN_START-->
-Commands to list, enable and disable Docker Scout on repositories
+Commands to list, enable, and disable Docker Scout on repositories
 
 ### Subcommands
 

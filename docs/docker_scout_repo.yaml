@@ -1,6 +1,6 @@
 command: docker scout repo
-short: Commands to list, enable and disable Docker Scout on repositories
-long: Commands to list, enable and disable Docker Scout on repositories
+short: Commands to list, enable, and disable Docker Scout on repositories
+long: Commands to list, enable, and disable Docker Scout on repositories
 pname: docker scout
 plink: docker_scout.yaml
 cname:

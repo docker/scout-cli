@@ -148,7 +148,7 @@ options:
       swarm: false
     - option: to
       value_type: string
-      description: Image, directory or archive to compare to
+      description: Image, directory, or archive to compare to
       deprecated: false
       hidden: false
       experimental: false
@@ -189,7 +189,7 @@ options:
       value_type: string
       default_value: image
       description: |-
-        Type of the image to analyze. Can be one of:
+        Image type to analyze. Can be one of:
         - image
         - oci-dir
         - archive (docker save tarball)
