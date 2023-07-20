@@ -79,6 +79,16 @@ options:
       experimentalcli: false
       kubernetes: false
       swarm: false
+    - option: multi-stage
+      value_type: bool
+      default_value: "false"
+      description: Show packages from multi-stage Docker builds
+      deprecated: false
+      hidden: false
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
     - option: only-cve-id
       value_type: stringSlice
       default_value: '[]'
@@ -116,6 +126,16 @@ options:
       default_value: '[]'
       description: |
         Comma separated list of severities (critical, high, medium, low, unspecified) to filter CVEs by
+      deprecated: false
+      hidden: false
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
+    - option: only-stage
+      value_type: stringSlice
+      default_value: '[]'
+      description: Comma separated list of multi-stage Docker build stage names
       deprecated: false
       hidden: false
       experimental: false
