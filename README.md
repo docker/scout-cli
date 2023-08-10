@@ -163,7 +163,7 @@ docker-build:
       apk del curl 
       rm -rf /var/cache/apk/* 
     # Login to Docker Hub required for Docker Scout CLI
-    - docker login -u "$DOCKER_HUB_USER" -p "$DOCKER_HUB_PAT"
+    - echo "$DOCKER_HUB_PAT" | docker login --username "$DOCKER_HUB_USER" --password-stdin
   script:
     - |
       if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
