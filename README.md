@@ -306,6 +306,63 @@ The following snippet can be added to a `Jenkinsfile` to install and analyze ima
 
 This example assume two secrets to be available to authenticate against Docker Hub, called `DOCKER_HUB_USER` and `DOCKER_HUB_PAT`. 
 
+### Bitbucket
+
+Use the following pipeline definition as a template to get Docker Scout integrated in Bitbucket Pipelines:
+
+```yaml
+image: docker
+
+pipelines:
+  default:
+    - step:
+        name: Build
+        services:
+          - docker
+        caches:
+          - docker
+        script:
+          - echo "$DOCKER_HUB_PAT" | docker login --username "$DOCKER_HUB_USER" --password-stdin $CI_REGISTRY
+
+          # Install curl and the Docker Scout CLI
+          - |
+            export DOCKER_BUILDKIT=0
+            apk add --update curl
+            curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s -- 
+            apk del curl 
+            rm -rf /var/cache/apk/* 
+          # Login to Docker Hub required for Docker Scout CLI
+          - echo "$DOCKER_HUB_PAT" | docker login --username "$DOCKER_HUB_USER" --password-stdin
+
+          - |
+            export DEVELOPMENT_BRANCH="main"
+            if [[ "$BITBUCKET_BRANCH" == "$DEVELOPMENT_BRANCH" ]]; then # Bitbucket uses master by default, adjust if your default branch is different
+              tag=":latest"
+              echo "Running on default branch '$DEVELOPMENT_BRANCH': tag = 'latest'"
+            else
+              tag=":$BITBUCKET_COMMIT"
+              echo "Running on branch '$BITBUCKET_BRANCH': tag = $tag"
+            fi
+          - docker build --pull -t "$CI_REGISTRY_IMAGE${tag}" .
+
+          - |
+            if [[ "$BITBUCKET_BRANCH" == "$DEVELOPMENT_BRANCH" ]]; then
+              # Get a CVE report for the built image and fail the pipeline when critical or high CVEs are detected
+              docker scout cves "$CI_REGISTRY_IMAGE${tag}" --exit-code --only-severity critical,high    
+            else
+              # Compare image from branch with latest image from the default branch and fail if new critical or high CVEs are detected            
+              docker scout compare "$CI_REGISTRY_IMAGE${tag}" --to "$CI_REGISTRY_IMAGE:latest" --exit-code --only-severity critical,high --ignore-unchanged
+            fi
+          - docker push "$CI_REGISTRY_IMAGE${tag}"
+
+definitions:
+  services:
+    docker:
+      memory: 2048 # Optional: Increase if needed
+```
+
+This example assumes two secrets to be available to authenticate against Docker Hub, called `DOCKER_HUB_USER` and `DOCKER_HUB_PAT`, also is necessary more two secrets called `CI_REGISTRY`, `CI_REGISTRY_IMAGE` about registry info. 
+
 ## License
 
 The Docker Scout CLI is licensed under the Terms and Conditions of the [Docker Subscription Service Agreement](https://www.docker.com/legal/docker-subscription-service-agreement/).
