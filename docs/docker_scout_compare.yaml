@@ -175,6 +175,15 @@ options:
       experimentalcli: false
       kubernetes: false
       swarm: false
+    - option: to-env
+      value_type: string
+      description: Name of environment to compare to
+      deprecated: false
+      hidden: false
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
     - option: to-latest
       value_type: bool
       default_value: "false"
@@ -199,8 +208,8 @@ options:
     - option: to-stream
       value_type: string
       description: Name of stream to compare to
-      deprecated: false
-      hidden: false
+      deprecated: true
+      hidden: true
       experimental: false
       experimentalcli: false
       kubernetes: false

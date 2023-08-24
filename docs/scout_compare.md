@@ -25,9 +25,9 @@ Compare two images and display differences (experimental)
 | `--platform`          | `string`      |         | Platform of image to analyze                                                                                                                                                   |
 | `--ref`               | `string`      |         | Reference to use if the provided tarball contains multiple references.<br>Can only be used with --type archive.                                                                |
 | `--to`                | `string`      |         | Image, directory, or archive to compare to                                                                                                                                     |
+| `--to-env`            | `string`      |         | Name of environment to compare to                                                                                                                                              |
 | `--to-latest`         |               |         | Latest image processed to compare to                                                                                                                                           |
 | `--to-ref`            | `string`      |         | Reference to use if the provided tarball contains multiple references.<br>Can only be used with --type archive.                                                                |
-| `--to-stream`         | `string`      |         | Name of stream to compare to                                                                                                                                                   |
 | `--to-type`           | `string`      | `image` | Image type to analyze. Can be one of:<br>- image<br>- oci-dir<br>- archive (docker save tarball)<br>                                                                           |
 | `--type`              | `string`      | `image` | Type of the image to analyze. Can be one of:<br>- image<br>- oci-dir<br>- archive (docker save tarball)<br>                                                                    |
 

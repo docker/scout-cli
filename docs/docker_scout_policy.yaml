@@ -1,0 +1,85 @@
+command: docker scout policy
+short: Display the policy results of an image (experimental)
+long: |
+    The `docker scout policy` command displays the policy results of an image if there are any.
+usage: docker scout policy [IMAGE | REPO]
+pname: docker scout
+plink: docker_scout.yaml
+options:
+    - option: env
+      value_type: string
+      description: Name of the environment to compare to.
+      deprecated: false
+      hidden: false
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
+    - option: exit-code
+      shorthand: e
+      value_type: bool
+      default_value: "false"
+      description: Return exit code '2' if policies are not met.
+      deprecated: false
+      hidden: false
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
+    - option: org
+      value_type: string
+      description: Namespace of the Docker organization
+      deprecated: false
+      hidden: false
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
+    - option: output
+      shorthand: o
+      value_type: string
+      description: Write the report to a file.
+      deprecated: false
+      hidden: false
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
+    - option: platform
+      value_type: string
+      description: Platform of image to pull policy results from.
+      deprecated: false
+      hidden: false
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
+inherited_options:
+    - option: debug
+      value_type: bool
+      default_value: "false"
+      description: Debug messages
+      deprecated: false
+      hidden: true
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
+examples: |-
+    ### Display the policy results of an image
+
+    ```console
+    $ docker scout policy dockerscoutpolicy/customers-api-service:0.0.1
+    ```
+
+    ### Compare policy results for a repository in a specific environment
+
+    ```console
+    $ docker scout policy dockerscoutpolicy/customers-api-service --env production
+    ```
+deprecated: false
+experimental: false
+experimentalcli: true
+kubernetes: false
+swarm: false
+
