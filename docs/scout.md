@@ -15,7 +15,7 @@ Command line tool for Docker Scout
 | [`compare`](scout_compare.md)                 | Compare two images and display differences (experimental)                                   |
 | [`config`](scout_config.md)                   | Manage Docker Scout configuration                                                           |
 | [`cves`](scout_cves.md)                       | Display CVEs identified in a software artifact                                              |
-| [`entitlement`](scout_entitlement.md)         | Manage entitlement of a Docker Hub repository                                               |
+| [`enroll`](scout_enroll.md)                   | Enroll an organization with Docker Scout                                                    |
 | [`environment`](scout_environment.md)         | Manage environments (experimental)                                                          |
 | [`policy`](scout_policy.md)                   | Display the policy results of an image (experimental)                                       |
 | [`push`](scout_push.md)                       | Push an image or image index to Docker Scout (experimental)                                 |
