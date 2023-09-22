@@ -24,14 +24,6 @@ See the [reference documentation](https://docs.docker.com/scout) to learn about 
 
 `docker scout` CLI plugin is available by default on [Docker Desktop](https://docs.docker.com/desktop/) starting with version `4.17`.
 
-### Script Installation
-
-To install, run the following command in your terminal:
-
-```shell
-curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
-```
-
 ### Manual Installation
 
 To install it manually:
@@ -40,13 +32,34 @@ To install it manually:
 - Uncompress it as
     - `docker-scout` on _Linux_ and _macOS_
     - `docker-scout.exe` on _Windows_
-- Copy it in your local CLI plugin directory
-    - `$HOME/.docker/cli-plugins` on _Linux_ and _macOS_
-    - `%USERPROFILE%\.docker\cli-plugins` on _Windows_
+- Copy the binary to the `scout` directory
+    - `$HOME/.docker/scout` on _Linux_ and _macOS_
+    - `%USERPROFILE%\.docker\scout` on _Windows_
 - Make it executable on _Linux_ and _macOS_
-    - `chmod +x $HOME/.docker/cli-plugins/docker-scout`
+    - `chmod +x $HOME/.docker/scout/docker-scout`
 - Authorize the binary to be executable on _macOS_
-    - `xattr -d com.apple.quarantine $HOME/.docker/cli-plugins/docker-scout`
+    - `xattr -d com.apple.quarantine $HOME/.docker/scout/docker-scout`
+- Add the `scout` directory to your `.docker/config.json` as a plugin directory
+    - `$HOME/.docker/config.json` on _Linux_ and _macOS_
+    - `%USERPROFILE%\.docker\config.json` on _Windows_
+    - Add the `cliPluginsExtraDirs` property to the `config.json` file
+```
+{
+	...
+	"cliPluginsExtraDirs": [
+		<full path to the .docker/scout folder>
+	],
+	...
+}
+```
+
+### Script Installation
+
+To install, run the following command in your terminal:
+
+```shell
+curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
+```
 
 ## Run as container
 
