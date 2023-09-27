@@ -15,6 +15,15 @@ options:
       experimentalcli: false
       kubernetes: false
       swarm: false
+    - option: integration
+      value_type: string
+      description: Name of the integration to use for enabling an image
+      deprecated: false
+      hidden: false
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
     - option: org
       value_type: string
       description: Namespace of the Docker organization
