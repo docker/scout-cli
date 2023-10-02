@@ -1,5 +1,3 @@
-_Note:_ Docker Scout is a new product and is free while in early access. Read more about [Docker Scout](https://www.docker.com/products/docker-scout?utm_source=hub&utm_content=scout-action-readme).
-
 - [Docker Scout](#docker-scout)
 - [Usage](#usage)
 - [CLI Plugin Installation](#cli-plugin-installation)
