@@ -187,6 +187,16 @@ options:
       experimentalcli: false
       kubernetes: false
       swarm: false
+    - option: only-vex-affected
+      value_type: bool
+      default_value: "false"
+      description: Filter CVEs by VEX statements with status not affected
+      deprecated: false
+      hidden: false
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
     - option: only-vuln-packages
       value_type: bool
       default_value: "false"
@@ -250,8 +260,8 @@ options:
       value_type: bool
       default_value: "false"
       description: Apply VEX statements to filter CVEs
-      deprecated: false
-      hidden: false
+      deprecated: true
+      hidden: true
       experimental: false
       experimentalcli: false
       kubernetes: false
