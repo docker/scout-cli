@@ -16,6 +16,26 @@ The [CLI documentation is available in this repository](./docs/scout.md).
 
 See the [reference documentation](https://docs.docker.com/scout) to learn about Docker Scout including Docker Desktop and Docker Hub integrations.
 
+### Environment Variables
+
+The following environment variables are availabe to configure the Scout CLI:
+
+| Name | Description |
+| ---- | ----------- |
+| `DOCKER_SCOUT_CACHE_FORMAT` | Format of the local image cache; can be "oci" or "tar" |
+| `DOCKER_SCOUT_CACHE_DIR` | Directory where the local SBOM cache is stored |
+| `DOCKER_SCOUT_NO_CACHE` | Disable the local SBOM cache |
+| `DOCKER_SCOUT_REGISTRY_TOKEN` | Registry Access token to use to authenticate when pulling images |
+| `DOCKER_SCOUT_REGISTRY_USER` | Registry user name to use to authenticate when pulling images |
+| `DOCKER_SCOUT_REGISTRY_PASSWORD` | Registry password/PAT to use to authenticate when pulling images |
+| `DOCKER_SCOUT_HUB_USER` | Docker Hub user name to authenticate against the Docker Scout backend |
+| `DOCKER_SCOUT_HUB_PASSWORD` | Docker Hub password/PAT to authenticate against the Docker Scout backend |
+| `DOCKER_SCOUT_OFFLINE` | Offline mode during SBOM indexing |
+| `DOCKER_SCOUT_NEW_VERSION_WARN` | Warn about new versions of the Docker Scout CLI |
+| `DOCKER_SCOUT_EXPERIMENTAL_WARN` | Warn about experimental features |
+| `DOCKER_SCOUT_EXPERIMENTAL_POLICY_OUTPUT` | Disable experimental policy output |
+
+
 ## CLI Plugin Installation
 
 ### Docker Desktop
