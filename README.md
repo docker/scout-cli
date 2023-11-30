@@ -22,7 +22,7 @@ The following environment variables are availabe to configure the Scout CLI:
 
 | Name | Description |
 | ---- | ----------- |
-| `DOCKER_SCOUT_CACHE_FORMAT` | Format of the local image cache; can be "oci" or "tar" |
+| `DOCKER_SCOUT_CACHE_FORMAT` | Format of the local image cache; can be `oci` or `tar` |
 | `DOCKER_SCOUT_CACHE_DIR` | Directory where the local SBOM cache is stored |
 | `DOCKER_SCOUT_NO_CACHE` | Disable the local SBOM cache |
 | `DOCKER_SCOUT_REGISTRY_TOKEN` | Registry Access token to use to authenticate when pulling images |
