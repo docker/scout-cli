@@ -65,7 +65,7 @@ To install it manually:
 {
 	...
 	"cliPluginsExtraDirs": [
-		<full path to the .docker/scout folder>
+		"<full path to the .docker/scout folder>"
 	],
 	...
 }
