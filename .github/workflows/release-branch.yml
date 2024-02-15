@@ -47,6 +47,8 @@ jobs:
     if:  startsWith(github.head_ref, 'release/v')
     permissions:
       contents: write
+    outputs:
+      tag: ${{ steps.tagname.outputs.value }}
     runs-on: ubuntu-latest
     needs: test
     steps:
@@ -54,7 +56,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: main
       - name: Tag name
         uses: mad9000/actions-find-and-replace-string@2
         id: tagname
@@ -70,3 +71,12 @@ jobs:
           git merge --ff-only origin/${{ github.head_ref }}
           git tag ${{ steps.tagname.outputs.value }}
           git push https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main --tags
+
+  create_release:
+    needs:
+      - release
+    uses: ./.github/workflows/release.yml
+    permissions:
+      contents: write
+    with:
+      tag: ${{ needs.release.outputs.tag }}
