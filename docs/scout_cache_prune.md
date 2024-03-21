@@ -7,7 +7,6 @@ Remove temporary or cached data
 
 | Name            | Type | Default | Description                    |
 |:----------------|:-----|:--------|:-------------------------------|
-| `--epss`        |      |         | Prune cached EPSS scores       |
 | `-f`, `--force` |      |         | Do not prompt for confirmation |
 | `--sboms`       |      |         | Prune cached SBOMs             |
 
