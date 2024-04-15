@@ -171,7 +171,7 @@ scores to the `docker scout cves` output. EPSS scores are estimates of the likel
 that a software vulnerability will be exploited in the wild in the next 30 days.
 The higher the score, the greater the probability that a vulnerability will be exploited.
 
-```console {hl_lines=13,14}
+```console {hl_lines="13,14"}
 $ docker scout cves --epss nginx
  ✓ Provenance obtained from attestation
  ✓ SBOM obtained from attestation, 232 packages indexed
