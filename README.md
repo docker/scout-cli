@@ -71,7 +71,7 @@ To install it manually:
 }
 ```
 
-### Script Installation
+### Script Installation (macOS and Linux)
 
 To install, run the following command in your terminal:
 
