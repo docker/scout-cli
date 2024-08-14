@@ -18,7 +18,7 @@ See the [reference documentation](https://docs.docker.com/scout) to learn about 
 
 ### Environment Variables
 
-The following environment variables are availabe to configure the Scout CLI:
+The following environment variables are available to configure the Scout CLI:
 
 | Name | Description |
 | ---- | ----------- |
