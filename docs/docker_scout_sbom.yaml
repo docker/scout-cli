@@ -51,6 +51,16 @@ options:
       experimentalcli: false
       kubernetes: false
       swarm: false
+    - option: include-secrets
+      value_type: bool
+      default_value: "false"
+      description: Scan for secrets in the image
+      deprecated: false
+      hidden: true
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
     - option: only-package-type
       value_type: stringSlice
       default_value: '[]'

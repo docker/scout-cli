@@ -9,10 +9,12 @@ Add attestation to image
 
 ### Options
 
-| Name               | Type          | Default | Description                             |
-|:-------------------|:--------------|:--------|:----------------------------------------|
-| `--file`           | `stringSlice` |         | File location of attestations to attach |
-| `--predicate-type` | `string`      |         | Predicate-type for attestations         |
+| Name               | Type          | Default | Description                                      |
+|:-------------------|:--------------|:--------|:-------------------------------------------------|
+| `--file`           | `stringSlice` |         | File location of attestations to attach          |
+| `--org`            | `string`      |         | Namespace of the Docker organization             |
+| `--predicate-type` | `string`      |         | Predicate-type for attestations                  |
+| `--use-referrer`   |               |         | Use Scout referrer endpoint to store attestation |
 
 
 <!---MARKER_GEN_END-->
