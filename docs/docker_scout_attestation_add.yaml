@@ -16,9 +16,28 @@ options:
       experimentalcli: false
       kubernetes: false
       swarm: false
+    - option: org
+      value_type: string
+      description: Namespace of the Docker organization
+      deprecated: false
+      hidden: false
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
     - option: predicate-type
       value_type: string
       description: Predicate-type for attestations
+      deprecated: false
+      hidden: false
+      experimental: false
+      experimentalcli: false
+      kubernetes: false
+      swarm: false
+    - option: use-referrer
+      value_type: bool
+      default_value: "false"
+      description: Use Scout referrer endpoint to store attestation
       deprecated: false
       hidden: false
       experimental: false
