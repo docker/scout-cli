@@ -20,20 +20,22 @@ See the [reference documentation](https://docs.docker.com/scout) to learn about 
 
 The following environment variables are available to configure the Scout CLI:
 
-| Name | Description |
-| ---- | ----------- |
-| `DOCKER_SCOUT_CACHE_FORMAT` | Format of the local image cache; can be `oci` or `tar` |
-| `DOCKER_SCOUT_CACHE_DIR` | Directory where the local SBOM cache is stored |
-| `DOCKER_SCOUT_NO_CACHE` | Disable the local SBOM cache |
-| `DOCKER_SCOUT_REGISTRY_TOKEN` | Registry Access token to authenticate when pulling images |
-| `DOCKER_SCOUT_REGISTRY_USER` | Registry user name to authenticate when pulling images |
-| `DOCKER_SCOUT_REGISTRY_PASSWORD` | Registry password/PAT to authenticate when pulling images |
-| `DOCKER_SCOUT_HUB_USER` | Docker Hub user name to authenticate against the Docker Scout backend |
-| `DOCKER_SCOUT_HUB_PASSWORD` | Docker Hub password/PAT to authenticate against the Docker Scout backend |
-| `DOCKER_SCOUT_OFFLINE` | Offline mode during SBOM indexing |
-| `DOCKER_SCOUT_NEW_VERSION_WARN` | Warn about new versions of the Docker Scout CLI |
-| `DOCKER_SCOUT_EXPERIMENTAL_WARN` | Warn about experimental features |
-| `DOCKER_SCOUT_EXPERIMENTAL_POLICY_OUTPUT` | Disable experimental policy output |
+| Name | Format | Description |
+| ---- | ------ | ----------- |
+| `DOCKER_SCOUT_CACHE_FORMAT` | String | Format of the local image cache; can be `oci` or `tar` |
+| `DOCKER_SCOUT_CACHE_DIR` | String | Directory where the local SBOM cache is stored |
+| `DOCKER_SCOUT_NO_CACHE` | Boolean | Disable the local SBOM cache |
+| `DOCKER_SCOUT_OFFLINE` | Boolean  | Offline mode during SBOM indexing |
+| `DOCKER_SCOUT_REGISTRY_TOKEN` | String | Registry Access token to authenticate when pulling images |
+| `DOCKER_SCOUT_REGISTRY_USER` | String | Registry user name to authenticate when pulling images |
+| `DOCKER_SCOUT_REGISTRY_PASSWORD` | String | Registry password/PAT to authenticate when pulling images |
+| `DOCKER_SCOUT_HUB_USER` | String | Docker Hub user name to authenticate against the Docker Scout backend |
+| `DOCKER_SCOUT_HUB_PASSWORD` | String | Docker Hub password/PAT to authenticate against the Docker Scout backend |
+| `DOCKER_SCOUT_NEW_VERSION_WARN` | Boolean | Warn about new versions of the Docker Scout CLI |
+| `DOCKER_SCOUT_EXPERIMENTAL_WARN` | Boolean | Warn about experimental features |
+| `DOCKER_SCOUT_EXPERIMENTAL_POLICY_OUTPUT` | Boolean | Disable experimental policy output |
+
+You can found further information about environment variables [here](https://docs.docker.com/scout/how-tos/configure-cli/).
 
 
 ## CLI Plugin Installation
