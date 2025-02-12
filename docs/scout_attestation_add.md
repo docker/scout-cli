@@ -9,12 +9,13 @@ Add attestation to image
 
 ### Options
 
-| Name               | Type          | Default | Description                                      |
-|:-------------------|:--------------|:--------|:-------------------------------------------------|
-| `--file`           | `stringSlice` |         | File location of attestations to attach          |
-| `--org`            | `string`      |         | Namespace of the Docker organization             |
-| `--predicate-type` | `string`      |         | Predicate-type for attestations                  |
-| `--use-referrer`   |               |         | Use Scout referrer endpoint to store attestation |
+| Name                    | Type          | Default                     | Description                                  |
+|:------------------------|:--------------|:----------------------------|:---------------------------------------------|
+| `--file`                | `stringSlice` |                             | File location of attestations to attach      |
+| `--org`                 | `string`      |                             | Namespace of the Docker organization         |
+| `--predicate-type`      | `string`      |                             | Predicate-type for attestations              |
+| `--referrer`            |               |                             | Use OCI referrer API for pushing attestation |
+| `--referrer-repository` | `string`      | `registry.scout.docker.com` | Repository to push referrer to               |
 
 
 <!---MARKER_GEN_END-->
