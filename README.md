@@ -214,7 +214,7 @@ docker-build:
         docker scout cves "$CI_REGISTRY_IMAGE${tag}" --exit-code --only-severity critical,high    
       else
         # Compare image from branch with latest image from the default branch and fail if new critical or high CVEs are detected
-        docker scout compare "$CI_REGISTRY_IMAGE${tag}" --to "$CI_REGISTRY_IMAGE:latest" --exit-code --only-severity critical,high --ignore-unchanged
+        docker scout compare "$CI_REGISTRY_IMAGE${tag}" --to "$CI_REGISTRY_IMAGE:latest" --exit-on vulnerability,policy --only-severity critical,high --ignore-unchanged
       fi
     
     - docker push "$CI_REGISTRY_IMAGE${tag}"
