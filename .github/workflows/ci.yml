@@ -18,6 +18,10 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-buildx-action@v3
 
+      # 🔥 LOGIN MANUAL (más seguro que el action en forks)
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
       - name: Install Docker Scout
         run: |
           curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
