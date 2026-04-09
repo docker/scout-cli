@@ -14,25 +14,34 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Hub Login
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PAT }}
+
+      # 🔥 Docker login eliminado para compatibilidad con fork
+      # - name: Hub Login
+      #   uses: docker/login-action@v2
+      #   with:
+      #     username: ${{ secrets.DOCKER_USER }}
+      #     password: ${{ secrets.DOCKER_PAT }}
+
       - name: Prepare scout binary
         run: |
           tar -xf dist/docker-scout_*_linux_amd64.tar.gz -C .
           chmod +x docker-scout
+
       - name: TEST docker scout version
         run: ./docker-scout version
+
       - name: TEST docker scout quickview
         run: ./docker-scout quickview alpine:latest
+
       - name: TEST docker scout cves
         run: ./docker-scout cves docker/scout-demo-service:main
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
       - name: Build
         uses: docker/build-push-action@v5
         with:
@@ -40,11 +49,12 @@ jobs:
           push: false
           load: true
           tags: docker/scout-demo-service:fix
+
       - name: TEST docker scout compare
         run: ./docker-scout compare registry://docker/scout-demo-service:main --to local://docker/scout-demo-service:fix
 
   release:
-    if:  startsWith(github.head_ref, 'release/v')
+    if: startsWith(github.head_ref, 'release/v')
     permissions:
       contents: write
     outputs:
@@ -56,6 +66,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Tag name
         uses: mad9000/actions-find-and-replace-string@2
         id: tagname
@@ -63,6 +74,7 @@ jobs:
           source: ${{ github.head_ref }}
           find: 'release/'
           replace: ''
+
       - name: Merge and Tag
         run: |
           git config --unset-all http.https://github.com/.extraheader
