@@ -1,0 +1,47 @@
+name: CI/CD Fork Test
+
+on:
+  push:
+    branches:
+      - "fix/attestation-docs"
+  pull_request:
+    branches:
+      - "fix/attestation-docs"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare scout binary
+        run: |
+          tar -xf dist/docker-scout_*_linux_amd64.tar.gz -C .
+          chmod +x docker-scout
+
+      - name: Test docker scout version
+        run: ./docker-scout version
+
+      - name: Test docker scout quickview
+        run: ./docker-scout quickview alpine:latest
+
+      - name: Test docker scout cves
+        run: ./docker-scout cves docker/scout-demo-service:main
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: https://github.com/docker/scout-demo-service.git#fix-all-cves
+          push: false
+          load: true
+          tags: local/scout-demo-service:fix
+
+      - name: Test docker scout compare
+        run: ./docker-scout compare registry://docker/scout-demo-service:main --to local://local/scout-demo-service:fix
