@@ -393,9 +393,33 @@ definitions:
     docker:
       memory: 2048 # Optional: Increase if needed
 ```
+## Attestation Commands
+
+The following attestation subcommands are available:
+
+### docker scout attest get
+Retrieve attestation data for a specific image.
+
+Example:
+docker scout attest get <image>
+
+### docker scout attest list
+List available attestations for an image.
+
+Example:
+docker scout attest list <image>
+
+### Additional Flags
+
+--predicate-type  
+Specifies the type of predicate for filtering attestations.
+
+--verify  
+Verifies the integrity and authenticity of the image.
 
 This example assumes two secrets to be available to authenticate against Docker Hub, called `DOCKER_HUB_USER` and `DOCKER_HUB_PAT`, also is necessary more two secrets called `CI_REGISTRY`, `CI_REGISTRY_IMAGE` about registry info. 
 
 ## License
 
 The Docker Scout CLI is licensed under the Terms and Conditions of the [Docker Subscription Service Agreement](https://www.docker.com/legal/docker-subscription-service-agreement/). 
+
