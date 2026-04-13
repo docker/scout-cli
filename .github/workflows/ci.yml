@@ -39,7 +39,7 @@ jobs:
         run: docker scout cves alpine
 
       # =========================
-      # 🔥 PRUEBAS UNITARIAS
+      #  PRUEBAS UNITARIAS
       # =========================
 
       - name: Install Python
