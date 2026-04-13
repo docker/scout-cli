@@ -418,6 +418,7 @@ Specifies the type of predicate for filtering attestations.
 Verifies the integrity and authenticity of the image.
 
 This example assumes two secrets to be available to authenticate against Docker Hub, called `DOCKER_HUB_USER` and `DOCKER_HUB_PAT`, also is necessary more two secrets called `CI_REGISTRY`, `CI_REGISTRY_IMAGE` about registry info. 
+Prueba de versionamiento automatico
 
 ## License
 
