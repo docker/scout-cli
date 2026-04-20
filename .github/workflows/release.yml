@@ -21,12 +21,12 @@ jobs:
       RELEASE_REF: ${{ github.event_name == 'push' && github.ref_name || inputs.tag }}
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           fetch-depth: 0
           ref: ${{ env.RELEASE_REF }}
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v1
         with:
           draft: true
           tag_name: ${{ env.RELEASE_REF }}
