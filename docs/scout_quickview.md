@@ -19,6 +19,10 @@ Quick overview of an image
 | `--org`               | `string`      |                     | Namespace of the Docker organization                                                                    |
 | `-o`, `--output`      | `string`      |                     | Write the report to a file                                                                              |
 | `--platform`          | `string`      |                     | Platform of image to analyze                                                                            |
+| `--policy-bundle`     | `stringArray` |                     | OCI reference of a policy bundle to evaluate (repeatable)                                               |
+| `--policy-config`     | `string`      |                     | Path or http(s) URL to a JSON file configuring policy enablement and inputs                             |
+| `--policy-dir`        | `stringArray` |                     | Path to a directory of local .rego policy files (repeatable)                                            |
+| `--policy-file`       | `stringArray` |                     | Path or http(s) URL to a .rego policy file (repeatable)                                                 |
 | `--ref`               | `string`      |                     | Reference to use if the provided tarball contains multiple references.<br>Can only be used with archive |
 | `--vex-author`        | `stringSlice` | `[<.*@docker.com>]` | List of VEX statement authors to accept                                                                 |
 | `--vex-location`      | `stringSlice` |                     | File location of directory or file containing VEX statements                                            |
