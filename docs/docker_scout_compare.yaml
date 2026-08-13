@@ -99,8 +99,7 @@ options:
     - option: ignore-suppressed
       value_type: bool
       default_value: "false"
-      description: |
-        Filter CVEs found in Scout exceptions based on the specified exception scope
+      description: Filter out CVEs suppressed by a Scout exception
       deprecated: false
       hidden: false
       experimental: false
