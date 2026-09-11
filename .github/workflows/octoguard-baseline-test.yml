@@ -1,0 +1,16 @@
+name: octoguard-test-pin
+on:
+  workflow_dispatch:
+  pull_request:
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+jobs:
+  octoguard:
+    uses: docker/octoguard/.github/workflows/octoguard.yml@v1.2.1
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    secrets: inherit
