@@ -12,7 +12,7 @@ Quick overview of an image
 | Name                  | Type          | Default             | Description                                                                                             |
 |:----------------------|:--------------|:--------------------|:--------------------------------------------------------------------------------------------------------|
 | `--env`               | `string`      |                     | Name of the environment                                                                                 |
-| `--ignore-suppressed` |               |                     | Filter CVEs found in Scout exceptions based on the specified exception scope                            |
+| `--ignore-suppressed` |               |                     | Filter out CVEs suppressed by a Scout exception                                                         |
 | `--latest`            |               |                     | Latest indexed image                                                                                    |
 | `--only-policy`       | `stringSlice` |                     | Comma separated list of policies to evaluate                                                            |
 | `--only-vex-affected` |               |                     | Filter CVEs by VEX statements with status not affected                                                  |

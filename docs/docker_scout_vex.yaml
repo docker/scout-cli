@@ -1,5 +1,4 @@
 command: docker scout vex
-aliases: docker scout vex, docker scout vex
 short: Manage VEX attestations on images
 long: Manage VEX attestations on images
 pname: docker scout

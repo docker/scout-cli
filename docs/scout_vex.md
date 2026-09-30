@@ -3,10 +3,6 @@
 <!---MARKER_GEN_START-->
 Manage VEX attestations on images
 
-### Aliases
-
-`docker scout vex`, `docker scout vex`
-
 ### Subcommands
 
 | Name                      | Description                   |
