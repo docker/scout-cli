@@ -1,0 +1,16 @@
+name: octoguard-test-pin
+on:
+  workflow_dispatch:
+  pull_request:
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+jobs:
+  octoguard:
+    uses: docker/octoguard/.github/workflows/octoguard.yml@fix/sarif-upload-and-download-resilience
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    secrets: inherit
