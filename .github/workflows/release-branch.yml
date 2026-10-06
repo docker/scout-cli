@@ -29,6 +29,15 @@ jobs:
         run: ./docker-scout quickview alpine:latest
       - name: TEST docker scout cves
         run: ./docker-scout cves docker/scout-demo-service:main
+      - name: TEST docker scout recommendations
+        run: ./docker-scout recommendations docker/scout-demo-service:main
+      - name: Watch repository after release
+        run: |
+          ./docker-scout watch \
+            --org my-org \
+            --repository registry.example.com/scout-demo-service \
+            --tag latest \
+            --dry-run
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx

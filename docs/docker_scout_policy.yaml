@@ -6,14 +6,13 @@ long: |-
     The image analysis is uploaded to Docker Scout where policies get evaluated.
 
     The policy evaluation results may take a few minutes to become available.
-usage: docker scout policy [IMAGE | REPO]
 pname: docker scout
 plink: docker_scout.yaml
 cname:
     - docker scout policy publish
 clink:
     - docker_scout_policy_publish.yaml
-options:
+inherited_options:
     - option: exit-code
       shorthand: e
       value_type: bool
@@ -113,7 +112,6 @@ options:
       experimentalcli: false
       kubernetes: false
       swarm: false
-inherited_options:
     - option: debug
       value_type: bool
       default_value: "false"
@@ -134,33 +132,8 @@ inherited_options:
       experimentalcli: false
       kubernetes: false
       swarm: false
-examples: |-
-    ### Evaluate policies against an image and display the results
-
-    ```console
-    $ docker scout policy dockerscoutpolicy/customers-api-service:0.0.1
-    ```
-
-    ### Evaluate policies against an image for a specific organization
-
-    ```console
-    $ docker scout policy dockerscoutpolicy/customers-api-service:0.0.1 --org dockerscoutpolicy
-    ```
-
-    ### Evaluate policies against an image with a specific platform
-
-    ```console
-    $ docker scout policy dockerscoutpolicy/customers-api-service:0.0.1 --platform linux/amd64
-    ```
-
-    ### Compare policy results for a repository in a specific environment
-
-    ```console
-    $ docker scout policy dockerscoutpolicy/customers-api-service --to-env production
-    ```
 deprecated: false
 experimental: false
 experimentalcli: true
 kubernetes: false
 swarm: false
-

@@ -1,0 +1,38 @@
+name: Validate YAML Schema
+
+on:
+  push:
+    paths:
+      - 'docs/**.yaml'
+      - 'tests/**'
+  pull_request:
+    paths:
+      - 'docs/**.yaml'
+      - 'tests/**'
+    
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pytest pytest-html pyyaml
+
+      - name: Run YAML schema tests
+        run: pytest tests/ --html=reporte.html --self-contained-html
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-pruebas
+          path: reporte.html
