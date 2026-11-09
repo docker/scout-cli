@@ -1,0 +1,18 @@
+name: octoguard-test-pin
+on:
+  workflow_dispatch:
+  pull_request:
+permissions: {}
+jobs:
+  octoguard:
+    uses: docker/octoguard/.github/workflows/octoguard.yml@0280dc9a4f46799df548ce3420a03b28596e3aee # v1.2.9
+    permissions:
+      contents: read # check out the repo to scan its workflows
+      actions: read # read workflow run metadata for code scanning
+      security-events: write # upload SARIF results to code scanning
+    secrets:
+      SOCKET_SECURITY_API_TOKEN: ${{ secrets.SOCKET_SECURITY_API_TOKEN }}
+      OCTOGUARD_APP_ID: ${{ secrets.OCTOGUARD_APP_ID }}
+      OCTOGUARD_APP_PRIVATE_KEY: ${{ secrets.OCTOGUARD_APP_PRIVATE_KEY }}
+      OTLP_ENDPOINT: ${{ secrets.OTLP_ENDPOINT }}
+      OTLP_HEADERS: ${{ secrets.OTLP_HEADERS }}
